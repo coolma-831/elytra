@@ -26,15 +26,14 @@ jobs:
       - name: Compile Mod
         run: ./gradlew build
 
-      # 调试：打印目录，确认jar真实位置
       - name: Debug list build dir
         run: |
           ls -la build/
           ls -la build/libs/
+          ls -la build/libs/1.21.4/
 
       - name: Upload mod jar artifact
         uses: actions/upload-artifact@v5
         with:
           name: Fabric-Mod-1.21.4
-          path: |
-            build/libs/*.jar
+          path: build/libs/1.21.4/*.jar
